@@ -375,3 +375,7 @@ footer a {
   color: #333;
   padding: 1.5em;
 }
+
+.fas, .fa-bars {
+  float: right;
+}
