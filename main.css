@@ -10,6 +10,10 @@ body {
   font-family: Roboto;
   font-size: 12px;
   color: #424242;
+  display: flex;
+  flex-wrap: wrap;
+  
+  
 }
 
 h1,
@@ -60,6 +64,8 @@ ul {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
   min-height: 56px;
   transition: min-height 0.3s;
+  order: 1;
+  width: 100%;
 }
 
 .header__inner {
@@ -83,6 +89,9 @@ ul {
   color: #212121;
 }
 
+i.fa-bars {
+  margin: 0.25em;
+}
 
 /*
  *
@@ -90,25 +99,42 @@ ul {
  *
  */
 
-.nav {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+ nav {
+  background-color: white;
+  width: 260px;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 1em;
+  position: absolute;
+  order: 0;
+  /* This trasform moves the drawer off canvas. */
+  -webkit-transform: translate(768px, 0);
+  transform: translate(768px, 0);
+  /* Optionally, we animate the drawer. */
+  transition: transform 0.3s ease;
+  
 }
 
-.nav__list {
-  width: 100%;
-  padding: 0;
-  margin: 0;
+.nav__item {
+  display: block;
+  
+}
+
+nav.open {
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+  right: 0px;
+  z-index: 1;
+  /*position: relative;*/
 }
 
 .nav__item {
   box-sizing: border-box;
-  display: inline-block;
+  /*display: inline-block;*/
   width: 24%;
   text-align: center;
   line-height: 24px;
-  padding: 24px;
+  padding: 24px 0px;
   text-transform: uppercase;
 }
 
@@ -123,7 +149,6 @@ ul {
   color: #212121;
 }
 
-
 /*
  *
  * Main
@@ -135,6 +160,7 @@ main {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
+  order: 2;
 }
 
 /*
@@ -181,6 +207,7 @@ main {
   height: 300px;
   border-bottom: 1px solid #E0E0E0;
   padding: 1em;
+  width: 100%;
 }
 
 .news__title {
@@ -222,7 +249,13 @@ main {
  */
 
 .scores {
-  padding-top: 1em;
+  padding: 1em;
+  width: 100%;
+}
+
+.table_container {
+  width: 100%;
+  overflow-x: auto;
 }
 
 .scores__table {
@@ -270,6 +303,7 @@ main {
 
 .weather {
   padding: 1em;
+  width: 100%;
 }
 
 .weather__location {
@@ -376,6 +410,121 @@ footer a {
   padding: 1.5em;
 }
 
-.fas, .fa-bars {
+.fa-bars {
   float: right;
+  
+}
+
+/*
+.fa-times {
+  float: right;
+  
+}
+*/
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+
+@media screen and (min-width: 650px) {
+  .header {
+    order: 0;
+  }
+
+  .nav {
+    order: 1;
+  }
+
+  .main {
+    order: 2;
+  }
+
+  .hero, .top-news, .scores, .weather, .recent-news {
+    order: 10;
+  }
+  
+  .fas.fa-bars, .nav__exit {
+    display: none;
+  }
+
+  nav.open {
+    z-index: 0;
+  }
+
+  nav {
+    background-color: transparent;
+    height: auto;
+    padding: 0;
+    
+  }
+
+  .nav {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+    position: relative;
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+    height: auto;
+    max-height: 72px;
+  }
+
+
+  
+  .nav__list {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+
+  }
+  
+  .nav__item {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 24%;
+    text-align: center;
+    line-height: 24px;
+    text-transform: uppercase;
+ 
+  }
+  
+  .nav a {
+    text-decoration: none;
+    color: #616161;
+    padding: 1.5em;
+  }
+  
+  .nav a:hover {
+    text-decoration: underline;
+    color: #212121;
+  }
+
+  .scores {
+    width: 60%;
+  }
+
+  .weather {
+    width: 40%;
+  }
+}
+
+@media screen and (min-width: 800px) {
+
+  main {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero {
+    width: 60%;
+  }
+
+  .top-news {
+    width: 40%;
+  }
 }

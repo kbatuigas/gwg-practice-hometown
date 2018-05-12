@@ -8,13 +8,14 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+    
   </head>
   <body>
 
     <header class="header">
       <div class="header__inner">
         <img class="header__logo" src="images/city.png" alt="iconic view of a cityscape">
-        <i class="fas fa-bars"></i>       
+        <i class="fas fa-bars fa-3x"></i>       
         <h1 class="header__title">
           The Brighton Times
         </h1>
@@ -23,6 +24,7 @@
 
     <nav id="drawer" class="nav">
       <ul class="nav__list">
+        <li class="nav__exit"><i class="fas fa-times fa-3x"></i></li>
         <li class="nav__item"><a href="#">News</a></li>
         <li class="nav__item"><a href="#">Events</a></li>
         <li class="nav__item"><a href="#">Culture</a></li>
@@ -58,54 +60,56 @@
         </section>
 
         <section class="scores">
-          <table class="scores__table">
-            <thead>
-              <tr>
-                <th>date</th>
-                <th>team</th>
-                <th colspan="2">score</th>
-                <th>team</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Friday</td>
-                <td>Bears</td>
-                <td>95</td>
-                <td class="winner">109</td>
-                <td class="winner">Cubs</td>
-              </tr>
-              <tr>
-                <td>Friday</td>
-                <td class="winner">Otters</td>
-                <td class="winner">3</td>
-                <td>1</td>
-                <td>Cubs</td>
-              </tr>
-              <tr>
-                <td>Saturday</td>
-                <td class="winner">Wolves</td>
-                <td class="winner">7</td>
-                <td>0</td>
-                <td>Panthers</td>
-              </tr>
-              <tr>
-                <td>Sunday</td>
-                <td>Hawks</td>
-                <td>11</td>
-                <td class="winner">12</td>
-                <td class="winner">Capons</td>
-              </tr>
-              <tr>
-                <td>Sunday</td>
-                <td class="winner">Stags</td>
-                <td class="winner">6</td>
-                <td>2</td>
-                <td>Foxes</td>
-              </tr>
-              
-            </tbody>
-          </table>
+          <div class="table_container">
+            <table class="scores__table">
+              <thead>
+                <tr>
+                  <th>date</th>
+                  <th>team</th>
+                  <th colspan="2">score</th>
+                  <th>team</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Friday</td>
+                  <td>Bears</td>
+                  <td>95</td>
+                  <td class="winner">109</td>
+                  <td class="winner">Cubs</td>
+                </tr>
+                <tr>
+                  <td>Friday</td>
+                  <td class="winner">Otters</td>
+                  <td class="winner">3</td>
+                  <td>1</td>
+                  <td>Cubs</td>
+                </tr>
+                <tr>
+                  <td>Saturday</td>
+                  <td class="winner">Wolves</td>
+                  <td class="winner">7</td>
+                  <td>0</td>
+                  <td>Panthers</td>
+                </tr>
+                <tr>
+                  <td>Sunday</td>
+                  <td>Hawks</td>
+                  <td>11</td>
+                  <td class="winner">12</td>
+                  <td class="winner">Capons</td>
+                </tr>
+                <tr>
+                  <td>Sunday</td>
+                  <td class="winner">Stags</td>
+                  <td class="winner">6</td>
+                  <td>2</td>
+                  <td>Foxes</td>
+                </tr>
+                
+              </tbody>
+            </table>
+          </div>
         </section>
 
         <section class="weather">
@@ -180,5 +184,31 @@
         </ul>
       </footer>
     </main>
+    <script>
+        const menu = document.querySelector('.fa-bars');
+        const drawer = document.querySelector('#drawer');
+        const header = document.querySelector('.header');
+        const main = document.querySelector('main');
+        const navExit = document.querySelector('.fa-times')
+
+        menu.addEventListener('click', function(e) {
+          drawer.classList.toggle('open');
+          e.stopPropagation();
+        });
+
+        /*main.addEventListener('click', function() {
+          drawer.classList.remove('open');
+        });
+
+        header.addEventListener('click', function() {
+          drawer.classList.remove('open');
+        });*/
+
+        navExit.addEventListener('click', function() {
+          drawer.classList.remove('open');
+        });
+
+
+  </script>
   </body>
 </html>
