@@ -1,1 +1,1 @@
-# gwg-practice-hometown
+# GwG Web Foundations: Hometown App
