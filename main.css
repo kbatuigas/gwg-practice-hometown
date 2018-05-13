@@ -8,7 +8,8 @@ html {
 
 body {
   font-family: Roboto;
-  font-size: 12px;
+  font-size: 16px;
+  line-height: 1.2em;
   color: #424242;
   display: flex;
   flex-wrap: wrap;
@@ -39,6 +40,9 @@ ul {
   margin: 0;
 }
 
+img, embed, object, video {
+  max-width: 100%;
+}
 
 /*
  *
@@ -78,12 +82,12 @@ ul {
   height: 72px;
   margin-right: 1em;
   vertical-align: top;
-  margin-top: 12px;
+  margin-top: 0px;
 }
 
 .header__title {
   font-weight: 300;
-  font-size: 4em;
+  font-size: 2.2em;
   margin: 0.5em 0.25em;
   display: inline-block;
   color: #212121;
@@ -193,7 +197,8 @@ main {
   height: 40%;
   width: 100%;
   color: #fff;
-  padding: 1em;
+  padding: 0.5em;
+  overflow-y: auto;
 }
 
 
@@ -208,6 +213,7 @@ main {
   border-bottom: 1px solid #E0E0E0;
   padding: 1em;
   width: 100%;
+  overflow-y: auto;
 }
 
 .news__title {
@@ -387,6 +393,7 @@ main {
 }
 
 
+
 /*
  *
  * Footer
@@ -450,6 +457,10 @@ footer a {
     display: none;
   }
 
+  .header__title {
+    font-size: 3.5em;
+  }
+
   nav.open {
     z-index: 0;
   }
@@ -465,6 +476,7 @@ footer a {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
+    /*Change nav from side to across page*/
     display: inline-block;
     position: relative;
     -webkit-transform: translate(0, 0);
@@ -515,7 +527,7 @@ footer a {
 @media screen and (min-width: 800px) {
 
   main {
-    width: 800px;
+    width: 85%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -526,5 +538,13 @@ footer a {
 
   .top-news {
     width: 40%;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  main {
+    width: 1080px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
